@@ -1,0 +1,8 @@
+asap:
+  client:
+    hello:
+      keyId: ${KEYID:issuer1/rsa-key-for-tests}
+      privateKey: ${PRIVATE_KEY_REPO:classpath:///privatekeys/}
+      audience: ${AUDIENCE:test-resource-server}
+      issuer: ${ISSUER:issuer1}
+      resource.server.url: ${RESOURCE_SERVER_URL:localhost:8080/}
