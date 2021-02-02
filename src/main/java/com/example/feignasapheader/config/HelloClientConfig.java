@@ -5,7 +5,7 @@ import com.atlassian.asap.api.JwtBuilder;
 import com.atlassian.asap.api.SigningAlgorithm;
 import com.atlassian.asap.api.client.http.AuthorizationHeaderGenerator;
 import com.atlassian.asap.core.client.http.AuthorizationHeaderGeneratorImpl;
-import com.example.feignasapheader.client.interceptors.HelloInterceptorImpl;
+import com.atlassian.asap.feign.AsapInterceptor;
 import feign.Logger;
 import feign.RequestInterceptor;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,7 +35,7 @@ public class HelloClientConfig {
                 .issuer(issuer)
                 .build();
 
-        return new HelloInterceptorImpl(authorizationHeaderGenerator, jwtPrototype);
+        return new AsapInterceptor(authorizationHeaderGenerator, jwtPrototype);
     }
 
     @Bean
